@@ -9,6 +9,7 @@ This command is like the Google of Kubernetes. Use it to display one or many res
 ```bash
 kubectl get pods
 kubectl get services
+```
 
 
 ## kubectl describe
@@ -17,6 +18,7 @@ Now, if `kubectl get` is the Google, `kubectl describe` is like your private det
 
 ```bash
 kubectl describe pod my-awesome-pod
+```
 
 ## kubectl logs
 
@@ -24,6 +26,7 @@ Ever wish you could be a fly on the wall in your containers? Meet `kubectl logs`
 
 ```bash
 kubectl logs my-buggy-pod
+```
 
 
 ## kubectl exec
@@ -32,6 +35,7 @@ Last but not least, meet the puppet master command - `kubectl exec`. This comman
 
 ```bash
 kubectl exec my-pod -- ls /
+```
 
 And that's your crash course to `kubectl`! Remember, with great power comes great responsibility. Use your commands wisely!
 

@@ -33,6 +33,7 @@ Ensure bash-completion is installed. The procedures vary based on the Linux dist
 ```bash
 # macOS
 brew install bash-completion@2
+```
 
 # Ubuntu
 apt-get install bash-completion
@@ -44,6 +45,7 @@ echo 'source <(kubectl completion bash)' >>~/.bash_profile
 echo 'alias k=kubectl' >>~/.bash_profile
 echo 'complete -F __start_kubectl k' >>~/.bash_profile
 source ~/.bash_profile
+```
 
 ### Zsh
 
@@ -53,6 +55,7 @@ For Zsh, add the completion script to your `.zshrc` file:
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
+```
 
 
 ## Setting KUBE_EDITOR
@@ -61,6 +64,7 @@ You can set your preferred editor for Kubernetes like this:
 
 ```bash
 echo "export KUBE_EDITOR=\"nano\"" >>  ~/.bash_profile
+```
 
 
 ## Next Steps
