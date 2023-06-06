@@ -6,40 +6,48 @@ Welcome back, Kubernetes padawan! Ready to wield some more `kubectl` powers? Thi
 
 Imagine being able to predict the future, to know the consequences of your actions before you take them. Well, with `kubectl dry-run`, that's exactly what you can do! This command allows you to preview changes without applying them to the cluster. It's like having a "try before you buy" option!
 
-For instance, let's say you want to create a pod but aren't sure if your configuration file is correct. Here's a simple pod configuration file (`my-pod.yaml`):
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-nginx-pod
-  labels:
-    app: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.16.1
-    ports:
-    - containerPort: 80
-```
-
 With `kubectl dry-run`, you can test it out:
 
 ```bash
-kubectl create -f my-pod.yaml --dry-run=client
-```
+kubectl apply -f resources/configmap.yaml
+sed -i 's/example.property: "Hello, world!"/example.property: "New value"/' resources/configmap.yaml
+# Validate sintaks
+kubectl apply -f resources/configmap.yaml --dry-run=client
+# Check th yaml
+kubectl apply -f resources/configmap.yaml --dry-run=client
+kubectl delete -f resources/configmap.yaml
 
-This command will validate your configuration and tell you whether the pod can be created successfully.
+# Create a yaml on the fly
+kubectl create deployment my-deployment --image="natalicot/my_awsome_app:flut-log1" --dry-run=client --output=yaml > deployment.yaml
+cat deployment.yaml
+kubectl apply -f deployment.yaml
+kubectl get deployments
+kubectl delete deployment my-deployment
+```
 
 ## kubectl set
 
 Now, let's talk about `kubectl set`. This command is like your magic wand. It allows you to change specific fields on objects already deployed on your cluster. Let's say you want to update the image used by your running pod:
 
 ```bash
-kubectl set image pod/my-running-pod my-container=my-new-image
-```
+# Get image
+kubectl get deployment my-awesome-app -o=jsonpath='{.spec.template.spec.containers[0].image}'
 
-Boom! Your pod is now running with the new image. It's that simple.
+# Set new image
+kubectl set image deployment/my-awesome-app my-awesome-app=natalicot/my_awsome_app:1.0.2
+
+# get deployments
+kubectl get deployments
+
+# Get image
+kubectl get deployment my-awesome-app -o=jsonpath='{.spec.template.spec.containers[0].image}'
+
+# set the resources
+kubectl set resources deployment/my-awesome-app --requests=cpu=200m,memory=512Mi --limits=cpu=500m,memory=1Gi
+
+# Check resources
+kubectl describe deployment my-awesome-app | grep -A 10 "Containers:"
+```
 
 ---
 
@@ -47,6 +55,6 @@ So there you go, more `kubectl` powers unlocked! Stay tuned for more exciting co
 
 ---
 
-Next: [Even More kubectl Commands](slide-4.md)
+Next: [Even More kubectl Commands](../Kubectl-diff/)
 
 ---

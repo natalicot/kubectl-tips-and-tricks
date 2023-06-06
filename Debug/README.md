@@ -1,0 +1,1 @@
+kubectl debug -it my-awesome-app-594d9b5f44-b9lqv  --image=busybox

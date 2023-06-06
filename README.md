@@ -33,28 +33,19 @@ Ensure bash-completion is installed. The procedures vary based on the Linux dist
 ```bash
 # macOS
 brew install bash-completion@2
-```
 
 # Ubuntu
 apt-get install bash-completion
+```
 
-Once installed, add the following lines to your `~/.bash_profile` file for `kubectl` autocompletion:
+Once installed, add the following lines to your `~/.bash_profile` file for `kubectl` autocompletion,
+For Zsh, add the completion script to your `.zshrc` file:
 
 ```bash
 echo 'source <(kubectl completion bash)' >>~/.bash_profile
 echo 'alias k=kubectl' >>~/.bash_profile
 echo 'complete -F __start_kubectl k' >>~/.bash_profile
 source ~/.bash_profile
-```
-
-### Zsh
-
-For Zsh, add the completion script to your `.zshrc` file:
-
-```bash
-if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
 ```
 
 
@@ -66,6 +57,14 @@ You can set your preferred editor for Kubernetes like this:
 echo "export KUBE_EDITOR=\"nano\"" >>  ~/.bash_profile
 ```
 
+## Setting Alias
+
+It is very reomended to set an alias when working whith kubectl
+
+```bash
+echo "alias k=kubectl" >>  ~/.bash_profile
+```
+
 
 ## Next Steps
 
@@ -75,7 +74,9 @@ Enjoy the journey!
 
 ---
 
-Next: [Diving into kubectl](slide-2.md)
+Next: [Mastering the basics](./Dry-Run-and-Set)
+
+Remember to go through the cluster initialization process if you want to follow allong [Initializing the cluster](./Cluster-Setup/)
 
 ---
 
