@@ -74,9 +74,9 @@ Enjoy the journey!
 
 ---
 
-Next: [Mastering the basics](./Dry-Run-and-Set)
+Next: [Mastering the basics](./1-Mastering-the-basics)
 
-Remember to go through the cluster initialization process if you want to follow allong [Initializing the cluster](./Cluster-Setup/)
+Remember to go through the cluster initialization process if you want to follow allong [Initializing the cluster](./0-Cluster-Setup/)
 
 ---
 

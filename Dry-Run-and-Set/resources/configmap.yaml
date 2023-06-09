@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: example-config
-  namespace: sdp
-data:
-  example.property: "Hello, world!"
