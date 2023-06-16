@@ -3,6 +3,25 @@ Welcome to the world of kubectl plugins! Kubectl plugins are custom extensions t
 
 Let`s check some of the more popular plugins:
 
+# Create your own plugin!
+```bash
+# make the plugin executable
+sudo chmod +x ./kubectl-sdp
+
+# place it anywhere in your PATH
+sudo mv ./kubectl-sdp /usr/local/bin
+
+# Check you Plugin
+kubectl plugin list
+
+# Use the plugin
+kubectl sdp
+kubectl sdp help
+kubectl sdp set-ns
+kubectl sdp welcome
+```
+
+
 ## Krew
 
 [Krew](https://krew.sigs.k8s.io/) is a package manager for `kubectl` plugins. Krew allows you to discover and install plugins on your machine, enhancing the interaction with Kubernetes. With Krew, you can easily find, share, and use plugins, making your Kubernetes operations more productive and efficient.
@@ -36,8 +55,8 @@ kubectl krew install ns
 
 #### Example
 ```bash
-kubectl krew ctx
-kubectl krew ns
+kubectl ctx
+kubectl ns
 ```
 
 ### kubectl score
@@ -74,4 +93,48 @@ kubectl krew install kubescape
 #### Example
 ```bash
 kubectl kubescape scan
+```
+
+### kubectl deprecations
+
+`deprecations` is a Kubernetes-native tool for checking your Kubernetes deployment for deprecated APIs. It can help you update your deployments to use the latest API versions and avoid issues when upgrading your Kubernetes cluster.
+
+You can install `deprecations` via Krew. Assuming you have [Krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/) installed, you can install `deprecations` with the following command:
+
+#### Installing deprecations
+
+```bash
+kubectl krew install deprecations
+```
+Example
+To scan your Kubernetes deployments for deprecated APIs, you would run:
+
+```bash
+kubectl deprecations
+# Check on version 1.27
+kubectl deprecations --k8s-version "v1.27.3"
+```
+This command will inspect all API objects in your cluster and highlight any that are using deprecated APIs. Please be sure to review the documentation or help output of the plugin for more information and any additional options or features.
+
+
+### kubectl aws-auth
+
+`kubectl aws-auth` is a kubectl plugin to manage AWS IAM Authenticator's authentication ConfigMap. It simplifies the process of managing AWS IAM Authenticator configuration.
+
+
+#### Installing kubectl aws-auth
+
+You can install `kubectl aws-auth` via Krew. Assuming you have [Krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/) installed, you can install `kubectl aws-auth` with the following command:
+
+```bash
+kubectl krew install aws-auth
+```
+
+#### Example
+Note - this example is only valid for an EKS cluster
+```bash
+kubectl aws-auth get
+kubectl aws-auth upsert --maproles --rolearn arn:aws:iam::555555555555:role/test-user --username test-user --groups system:master
+# Remove all access belonging to an ARN
+kubectl aws-auth remove --maproles --rolearn arn:aws:iam::555555555555:role/test-user
 ```

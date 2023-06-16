@@ -31,25 +31,6 @@ kubectl get secrets my-secret -o yaml
 kubectl delete -f ./resources/secret.yaml
 ```
 
-## Create vs. apply
-TBD
-```bash
-# Create a new deployment
-kubectl create -f ./resources/example-deployment.yaml
-
-# Check the deployment
-kubectl describe deployment nginx-deployment
-
-# Make a change
-sed -i 's/replicas: [0-9]*/replicas: 5/' ./resources/example-deployment.yaml
-
-# Try to create again
-kubectl create -f ./resources/example-deployment.yaml
-
-# Apply
-sed -i 's/replicas: [0-9]*/replicas: 5/' ./resources/example-deployment.yaml
-
-```
 
 ## kubectl logs
 
@@ -91,3 +72,22 @@ In the next section, we'll explore some more advanced `kubectl` commands. Stay t
 Next: [Dry run and set](../2-Dry-Run-Diff-and-Set/)
 
 ---
+
+## Create vs. apply
+```bash
+# Create a new deployment
+kubectl create -f ./resources/example-deployment.yaml
+
+# Check the deployment
+kubectl describe deployment nginx-deployment
+
+# Make a change
+sed -i 's/replicas: [0-9]*/replicas: 5/' ./resources/example-deployment.yaml
+
+# Try to create again
+kubectl create -f ./resources/example-deployment.yaml
+
+# Apply
+sed -i 's/replicas: [0-9]*/replicas: 5/' ./resources/example-deployment.yaml
+
+```

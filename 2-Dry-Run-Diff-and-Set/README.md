@@ -10,21 +10,16 @@ With `kubectl dry-run`, you can test it out:
 
 ```bash
 kubectl apply -f resources/configmap.yaml
+kubectl describe cm example-config
 sed -i 's/example.property: "Hello, world!"/example.property: "New value"/' resources/configmap.yaml
 # Validate syntax
 kubectl apply -f resources/configmap.yaml --dry-run=client
+# Check config map
+kubectl describe cm example-config
 kubectl apply -f resources/configmap.yaml
 
 ```
-## kubectl diff
 
-Imagine having the power to understand the objects in your Kubernetes cluster at a granular level, to analyze the definitions and decode the nature of their existence. Well, with kubectl diff, that's exactly what you can do! This command allows you to compare your local changes with the live state of your Kubernetes cluster. It's like having a powerful magnifying glass to inspect every tiny detail before you finalize your deployment!
-
-```bash
-sed -i 's/example.property: "New value"/example.property: "Hello, world!"/' resources/configmap.yaml
-kubectl diff -f resources/configmap.yaml
-kubectl delete -f resources/configmap.yaml
-```
 ## kubectl dry-run - extra
 
 Another Amazing thing you can do dry-run is creating kubernetes manifests on the fly!
@@ -35,8 +30,22 @@ kubectl create deployment my-deployment --image="natalicot/my_awsome_app:flut-lo
 cat deployment.yaml
 kubectl apply -f deployment.yaml
 kubectl get deployments
+
+# Cleanup
 kubectl delete deployment my-deployment
 ```
+## kubectl diff
+
+Imagine having the power to understand the objects in your Kubernetes cluster at a granular level, to analyze the definitions and decode the nature of their existence. Well, with kubectl diff, that's exactly what you can do! This command allows you to compare your local changes with the live state of your Kubernetes cluster. It's like having a powerful magnifying glass to inspect every tiny detail before you finalize your deployment!
+
+```bash
+sed -i 's/example.property: "New value"/example.property: "Hello, world!"/' resources/configmap.yaml
+kubectl diff -f resources/configmap.yaml
+
+# Cleanup
+kubectl delete -f resources/configmap.yaml
+```
+
 
 
 ## kubectl set
@@ -56,6 +65,9 @@ kubectl get deployments
 # Get image
 kubectl get deployment my-awesome-app -o=jsonpath='{.spec.template.spec.containers[0].image}'
 
+# Check resources
+kubectl describe deployment my-awesome-app | grep -A 10 "Containers:"
+
 # set the resources
 kubectl set resources deployment/my-awesome-app --requests=cpu=200m,memory=512Mi --limits=cpu=500m,memory=1Gi
 
@@ -69,6 +81,6 @@ So there you go, more `kubectl` powers unlocked! Stay tuned for more exciting co
 
 ---
 
-Next: [Even More kubectl Commands](../3-Debug-and-Serve-Side-Apply/)
+Next: [Even More kubectl Commands](../3-Debug-and-Explain/)
 
 ---

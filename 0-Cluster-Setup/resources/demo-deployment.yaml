@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-awesome-app
-        image: natalicot/my_awsome_app:flut-log1
+        image: natalicot/my_awsome_app:1.0.3
         ports:
         - containerPort: 8081
         resources:
