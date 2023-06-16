@@ -2,6 +2,8 @@
 
 Welcome back, Kubernetes padawan! Ready to wield some more `kubectl` powers? This time, we'll look at `kubectl dry-run`, `kubectl diff` and `kubectl set`. These commands might not sound like much, but they are your secret weapons for managing your Kubernetes resources efficiently.
 
+![Try before you buy Robot](/Images/try-befor-you-buy-robot.jpg)
+
 ## kubectl dry-run
 
 Imagine being able to predict the future, to know the consequences of your actions before you take them. Well, with `kubectl dry-run`, that's exactly what you can do! This command allows you to preview changes without applying them to the cluster. It's like having a "try before you buy" option!
@@ -20,7 +22,7 @@ kubectl apply -f resources/configmap.yaml
 
 ```
 
-## kubectl dry-run - extra
+## kubectl dry-run - Extra
 
 Another Amazing thing you can do dry-run is creating kubernetes manifests on the fly!
 

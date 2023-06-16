@@ -1,15 +1,17 @@
 # Kubectl Plugins
 Welcome to the world of kubectl plugins! Kubectl plugins are custom extensions that enhance the functionality of the kubectl command-line tool. They allow you to interact with Kubernetes resources in a more efficient and tailored way. Whether you need to automate repetitive tasks, retrieve specific information, or extend kubectl with new commands, plugins have got you covered.
 
+![Plugins Robot](/Images/Plugins-robot.jpg)
+
 Let`s check some of the more popular plugins:
 
-# Create your own plugin!
+## Create your own plugin!
 ```bash
 # make the plugin executable
-sudo chmod +x ./kubectl-sdp
+sudo chmod +x ./my-plugin/kubectl-sdp
 
 # place it anywhere in your PATH
-sudo mv ./kubectl-sdp /usr/local/bin
+sudo mv ./my-plugin/kubectl-sdp /usr/local/bin
 
 # Check you Plugin
 kubectl plugin list
@@ -26,7 +28,7 @@ kubectl sdp welcome
 
 [Krew](https://krew.sigs.k8s.io/) is a package manager for `kubectl` plugins. Krew allows you to discover and install plugins on your machine, enhancing the interaction with Kubernetes. With Krew, you can easily find, share, and use plugins, making your Kubernetes operations more productive and efficient.
 
-### Installing Krew
+#### Installing Krew
 
 For detailed installation instructions, please refer to the [official Krew installation guide](https://krew.sigs.k8s.io/docs/user-guide/setup/install/).
 
@@ -59,7 +61,7 @@ kubectl ctx
 kubectl ns
 ```
 
-### kubectl score
+## kubectl score
 
 [Kubectl Score](https://github.com/zegl/kube-score) is a tool that performs static code analysis of your Kubernetes object definitions. The aim of kube-score is to provide an easy to use tool to validate your Kubernetes YAML or JSON configuration files. With it, you can get your configuration files scored for best practices and identify potential issues before deploying them to your clusters.
 
@@ -79,7 +81,7 @@ kubectl score score ./resources/even-better-pod.yaml
 kubectl score score ./resources/the-perfect-pod.yaml
 ```
 
-### kubectl kubescape
+## kubectl kubescape
 
 [Kubescape](https://github.com/armosec/kubescape) is a Kubernetes-native tool for testing Kubernetes deployments against the Kubernetes Hardening Guide from the NSA and Cybersecurity & Infrastructure Security Agency (CISA). It provides an easy way to check whether your deployment is following best practices for Kubernetes security.
 
@@ -95,7 +97,7 @@ kubectl krew install kubescape
 kubectl kubescape scan
 ```
 
-### kubectl deprecations
+## kubectl deprecations
 
 `deprecations` is a Kubernetes-native tool for checking your Kubernetes deployment for deprecated APIs. It can help you update your deployments to use the latest API versions and avoid issues when upgrading your Kubernetes cluster.
 
@@ -106,7 +108,7 @@ You can install `deprecations` via Krew. Assuming you have [Krew](https://krew.s
 ```bash
 kubectl krew install deprecations
 ```
-Example
+#### Example
 To scan your Kubernetes deployments for deprecated APIs, you would run:
 
 ```bash
@@ -117,7 +119,7 @@ kubectl deprecations --k8s-version "v1.27.3"
 This command will inspect all API objects in your cluster and highlight any that are using deprecated APIs. Please be sure to review the documentation or help output of the plugin for more information and any additional options or features.
 
 
-### kubectl aws-auth
+## kubectl aws-auth
 
 `kubectl aws-auth` is a kubectl plugin to manage AWS IAM Authenticator's authentication ConfigMap. It simplifies the process of managing AWS IAM Authenticator configuration.
 
@@ -138,3 +140,18 @@ kubectl aws-auth upsert --maproles --rolearn arn:aws:iam::555555555555:role/test
 # Remove all access belonging to an ARN
 kubectl aws-auth remove --maproles --rolearn arn:aws:iam::555555555555:role/test-user
 ```
+
+---
+
+Well, that brings us to the end of this comprehensive guide on `kubectl`. We've enjoyed being your tour guides on this journey into the depths of Kubernetes! It's our hope that you've found these insights helpful, enlightening, and maybe even a bit entertaining.
+
+Do you want to keep the conversation going? We'd love to connect with you on LinkedIn! Feel free to reach out to us - [Noam Amrani](https://www.linkedin.com/in/noamamrani/) and [Natali Cutic](https://www.linkedin.com/in/natali-cutic-24a444157/). Let's continue exploring the fascinating world of Kubernetes together.
+
+---
+
+Until next time, happy Kuberneting!
+
+---
+
+![Goodbye Robot](/Images/Good-buy-rbot.jpg)
+

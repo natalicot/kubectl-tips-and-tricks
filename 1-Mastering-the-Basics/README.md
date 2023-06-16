@@ -2,6 +2,8 @@
 
 Well hello there, aspiring Kubernetes master! Ready to dive into some `kubectl` goodness? Here are some of the basic commands that you'll use often - it's like the ABCs of `kubectl`.
 
+![Basics Robot](/Images/basics-robot.jpg)
+
 ## kubectl get
 
 This command is like the Google of Kubernetes. Use it to display one or many resources. Say, you forgot how many pods you have running? No worries, `kubectl get pods` to the rescue! Need to know the status of all your services? Just a quick `kubectl get services` and you'll be swimming in information.
@@ -63,17 +65,10 @@ kubectl exec example-pod -- cat /etc/config/example.property
 kubectl delete -f ./resources/configmap-and-pod.yaml
 ```
 
-And that's your crash course to `kubectl`! Remember, with great power comes great responsibility. Use your commands wisely!
+## Kubectl Create vs. apply
+Ever been unsure whether to `create` or `apply` your Kubernetes resources? These two warriors of the `kubectl` arsenal have distinct abilities. While `create` is all about birthing new resources into the Kubernetes realm, `apply` is the master of modification, adept at revising existing resources. Let's see how their powers shine in practice:
 
-In the next section, we'll explore some more advanced `kubectl` commands. Stay tuned!
 
----
-
-Next: [Dry run and set](../2-Dry-Run-Diff-and-Set/)
-
----
-
-## Create vs. apply
 ```bash
 # Create a new deployment
 kubectl create -f ./resources/example-deployment.yaml
@@ -91,3 +86,13 @@ kubectl create -f ./resources/example-deployment.yaml
 sed -i 's/replicas: [0-9]*/replicas: 5/' ./resources/example-deployment.yaml
 
 ```
+
+And that's your crash course to `kubectl`! Remember, with great power comes great responsibility. Use your commands wisely!
+
+In the next section, we'll explore some more advanced `kubectl` commands. Stay tuned!
+
+---
+
+Next: [Dry run and set](../2-Dry-Run-Diff-and-Set/)
+
+---

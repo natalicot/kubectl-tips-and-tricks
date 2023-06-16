@@ -3,6 +3,8 @@
 
 Welcome back, intrepid Kubernetes explorer! Are you ready to venture deeper into the `kubectl` toolset? In this section, we're putting the spotlight on `kubectl debug` and `kubectl server-side apply`. These might not seem like the flashiest commands, but trust us, they're secret superpowers in your Kubernetes toolkit.
 
+![Debug robot](/Images/debug-robot.jpg)
+
 ## kubectl debug
 Imagine being able to sleuth around your Kubernetes pods like a seasoned detective, identifying bugs and diagnosing issues without disrupting their routine. That's what you get with `kubectl debug`! It acts as an in-built inspector, allowing you to scrutinize your code in its live environment, without touching its normal operations. It's like having Sherlock Holmes at your service, dedicated to unmasking the mysteries of your Kubernetes pods!
 Behind the scenes, `kubectl debug` leverages the ability of Kubernetes to share process namespaces between containers in a pod. This feature is fundamental to the operation of `kubectl debug`. 
@@ -70,3 +72,13 @@ kubectl auth can-i list services --namespace default --as=system:serviceaccount:
 # Chack if you do it all
 kubectl auth can-i '*' '*'
 ```
+
+---
+
+And that wraps up this section! You've gained even more `kubectl` prowess and are well on your way to becoming a Kubernetes maestro. But the journey doesn't end here. In the next section, we're delving into the powerful world of `kubectl` plugins. Exciting, isn't it? Stay tuned!
+
+---
+
+Next: [Dive into kubectl Plugins](../4-Kubectl-Plugins/)
+
+---
