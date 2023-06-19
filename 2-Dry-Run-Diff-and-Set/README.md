@@ -11,9 +11,11 @@ Imagine being able to predict the future, to know the consequences of your actio
 With `kubectl dry-run`, you can test it out:
 
 ```bash
+cat resources/configmap.yaml
 kubectl apply -f resources/configmap.yaml
 kubectl describe cm example-config
 sed -i 's/example.property: "Hello, world!"/example.property: "New value"/' resources/configmap.yaml
+cat resources/configmap.yaml
 # Validate syntax
 kubectl apply -f resources/configmap.yaml --dry-run=client
 # Check config map
